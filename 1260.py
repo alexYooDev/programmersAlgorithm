@@ -4,15 +4,16 @@ from collections import deque
 n,m,v = map(int, input().split())
 
 # n+1개의 정점을 가진 그래프(이차원 리스트)를 생성
-graph = [[0]*(n+1) for _ in range(n + 1)]
+graph = [[0]*(n+1) for _ in range(n+1)]
+
 
 # 간선의 개수 만큼
-for _ in range(m):
+for i in range(m):
   # 간선이 연결하는 정점을 입력
-  n1,n2 = map(int, input().split())
-
-  # 정점을 연결
+  n1, n2 = map(int, input().split())
+  # 정점을 연결 값을 (1로 초기화)
   graph[n1][n2] = graph[n2][n1] = 1
+
 
 # 넓이 우선 탐색 알고리즘 함수 (매개변수는 시작 정점)
 def bfs(start_node):
@@ -25,13 +26,15 @@ def bfs(start_node):
   queue = deque()
   #큐에 시작 정점을 넣어준다
   queue.append(start_node)
+
   
   #큐가 빌때 까지
   while queue:
     # v 변수에 queue를 pop한 값을 할당 (방문한 순서 대로 할당) 
     v = queue.popleft()
     # v를 출력한다
-    print(v, end=' ')
+    print(v, end=" ")
+ 
 
     #그래프 안의 시작 노드의 길이 w 만큼
     for w in range(len(graph[start_node])):
@@ -41,6 +44,7 @@ def bfs(start_node):
         visited.append(w)
         #큐에도 넣는다.
         queue.append(w)
+
 
 # 깊이 우선 탐색 알고리즘 함수 (매개변수는 시작 정점, 방문 기록 리스트)
 def dfs(start_node, visited = []):
@@ -59,7 +63,6 @@ def dfs(start_node, visited = []):
 bfs(v)
 print()
 dfs(v)
-
   
 
   
