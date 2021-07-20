@@ -23,25 +23,4 @@ for _ in range(m):
   # 그래프에서 v의 인덱스에 u를 추가
   graph[v].append(u)
 
-# 깊이 우선 탐색 알고리즘 (매개변수는 탐색 시작 정점)
-def dfs(v):
-  # 처음 탐색 정점을 방문 처리
-  visited[v] = True
-  # 시작점에 연결되어 있는 정점들 중
-  for e in graph[v]:
-    # 방문하지 않았다면
-    if not visited[e]:
-      # 그 정점을 dfs 재귀함수로 돌림
-      dfs(e)
-
-# 1부터 n까지
-for j in range(1,n+1):
-  # 방문되지 않았다면
-  if not visited[j]:
-    # 그 정점을 시작점으로 깊이 우선 탐색 재귀 실행
-    dfs(j)
-    # 카운트 1
-    cnt +=1
-
-# 총 카운트된 수 출력
-print(cnt)
+print(graph)
