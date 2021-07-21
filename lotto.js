@@ -26,13 +26,13 @@ function solution(lottos, win_nums) {
       max++;
     }
   }
-  //최고순위에 최저순위 카운트를 증감대입한다.
+  //최고순위에 최저순위 카운트를 더하고 대입한다.
   max += min;
   // 최저순위 카운트가 2이상이면
   if (min >= 2) {
     // 최저순위 변수에 lottos 배열길이 - min +1 한 값을 재할당 => 중복카운트에서 순위로 변환작업.
     min = lottos.length - min + 1;
-    // 2 이하일 경우: 낙첨
+    // 2 미만일 경우: 낙첨
   } else {
     // lottos의 길이, 즉 6등 낙첨을 저장.
     min = lottos.length;
